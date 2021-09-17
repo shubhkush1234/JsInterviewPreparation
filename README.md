@@ -17,31 +17,71 @@ for (i=0; i< str.length; i++){
 
 }
 
-// we'll take a string, turn it into an array by calling split function on it. Reduce is used to take all different values within an array and condense them down to a single array.
+// we'll take a string, turn it into an array by calling split function on it. Reduce is used to take all different values within an array and merge them to a single array.
+
+```
+var str = "Shubham";
 
 function reverse(str){
-
+    str.split("").reduce((initValue, currentValue) => {
+        initValue + currentValue
+    }, "")
 }
 
-
-
-
-
-
+```
 
 # 2. Palindrome: #
 
 Solution 1:
 
+```
+var str = "abba"
  function palindrome (str){
-        const reversed = str.split('').reverse().join('');
+    const reversed = str.split('').reverse().join('');
     return str === reversed;
-    }
+}
+
+// true
+```
+
+# 3. Reversing an Integer #
+
+Solution 1:
+
+```
+function reverseInt (num){
+    return num.toString().split('').reverse().join('');
+}
+reverseInt(12345);
+```
+
+Improvement to this solution:
+
+for preserving the -ve sign, do add a check: 
+if(n>0){
+    return parseInt(reversed) * -1
+}
+
+
+# 3. Max Character #
+
+Eg: maxChar("abbbbbbbc") === "b"
+    maxChar("ab]bbbb]]]]]]bbc") === "]"
+
+Common String questions: 
+1. What is the most common character in the string? 
+2. Does the string A have the same characters as string B?
+3. Does the given string have any repeated characters in it?
+
+In questions like this, we'll convert these strings into objects. Key will be characters and it's value as the number of times it's appearing.
 
 
 
 
+```
 
+
+```
 
 
 
@@ -92,9 +132,29 @@ By the above example, we got that array filter() takes a function as argument an
 It does it immutably.
 
 
-3. reduce()
-............
+# 3. reduce() #
 
+Reduce() helper function takes 2 arguments: 
+ 1. arrow function/ callback function: 
+    1st argument: previousValue 
+    2nd argument: currentValue 
+
+ 2. initial value for previousValue 
+
+
+reduce() runs on each element of an array and runs the callback function 1 time on each element of array.  
+
+```
+
+const numbers = [1, 2 , 3, 4 , 5];
+
+const sum = numbers.reduce((previousValue, currentValue) => {
+    return previousValue + currentValue
+}, 0)
+
+// 15
+
+```
 
 
 
