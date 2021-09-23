@@ -142,11 +142,12 @@ Anything that's not a primitive type is called an object.
 
 NOTE: for-of loop is used to loop array and for-in loop is used to loop objects.
 
+-----------------------------------------------------
+
 
 Key js array methods:
 
-1. map()
-.........
+# 1. map() #
 ```javascript
     const arr=[1,2,3,4]
         undefined
@@ -157,10 +158,12 @@ Key js array methods:
 ```
     It does not changes the original array, it does operations on an array in a immutable way.
 
-2. filter()
-..........................
+-----------------------------------------------------
+
+# 2. filter() #
+
 Browser Console Output
-..........................
+
 ```javascript
 
 const myArray = [1,3,5,7,9]
@@ -175,6 +178,8 @@ myArray
 ............................
 By the above example, we got that array filter() takes a function as argument and returns the elements according to the condition. Anything which returns true, it'll keep in the new Array.
 It does it immutably.
+
+-----------------------------------------------------
 
 
 # 3. reduce() #
@@ -203,10 +208,16 @@ const sum = numbers.reduce((previousValue, currentValue) => {
 
 
 
+-----------------------------------------------------
 
-4. find()
-5. includes()
-.............
+# 4. find() #
+
+
+
+
+
+# 5. includes() #
+
 
 Browser Console Output
 Example1::
@@ -235,11 +246,10 @@ myArray.includes(2,3)
 > false
 //<means check for 2 if it exists after index[3]>
 ```
-...........................................
 
+-----------------------------------------------------
 
-Promise
-........
+# Promise #
 
 Async event handling--> fetch and async await
 Eg:
