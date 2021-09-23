@@ -75,13 +75,54 @@ Common String questions:
 
 In questions like this, we'll convert these strings into objects. Key will be characters and it's value as the number of times it's appearing.
 
+We'll iterate through this string and add that characters to the object.
 
+Converting strings to object: 
+1. Split string into an array and then use for-each or for-of to loop over characters. 
 
+```
+let string = "Hello ShubHam"; 
+let chars = {};
+
+for(let char of string){
+  chars[char] = chars[char] +1 || 1
+
+  // {"H":2,"e":1,"l":2,"o":1," ":1,"a":2,"n":2}
+}
+
+```
+
+```
+
+function maxChar(str){
+    const charMap = {};
+
+    for (let char of str){
+        if( charMap[char] ){
+            charMap[char]++ ;
+        } else {
+            charMap[char] = 1;
+        }
+    }
+    console.log(charMap);
+}
 
 ```
 
 
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -97,6 +138,10 @@ In questions like this, we'll convert these strings into objects. Key will be ch
 6. symbol
 
 Anything that's not a primitive type is called an object.
+
+
+NOTE: for-of loop is used to loop array and for-in loop is used to loop objects.
+
 
 Key js array methods:
 
@@ -162,6 +207,7 @@ const sum = numbers.reduce((previousValue, currentValue) => {
 4. find()
 5. includes()
 .............
+
 Browser Console Output
 Example1::
 ..............................
@@ -194,6 +240,7 @@ myArray.includes(2,3)
 
 Promise
 ........
+
 Async event handling--> fetch and async await
 Eg:
 ```javascript
@@ -224,6 +271,7 @@ Eg:
 ```
 
 The above approach is called callback approach which is very hard to debug. So, as an alternate, promises are introduced. It's aim is to exprapolate out a lot of the stuff. ALL the FUNCTIONS above are SYNCHRONOUS functions. Each one depends on the result and return of the previous one.
+
 ```javascript
 const myPromise= new Promise((resolve, reject)) => {
     setTimeout(() =>{
@@ -233,6 +281,7 @@ const myPromise= new Promise((resolve, reject)) => {
 myPromise.then(value => console.log(value));
 //after 1 sec, it will console log: "I have succeeded"
 ```
+
 What if the promise fails?
 Catch the reject value.
 
@@ -262,4 +311,49 @@ JavaScript fetch(), which is used for making API calls make use of promises to r
     fetch("https://jsonplaceholder.typicode/posts")
         .then(response => response.json())
         .then(console.log(json))
+```
+
+.......................................
+
+Objects in JS:
+
+```
+const symbols = {
+    yt: "YouTube",
+    ig: "Instagram",
+    fb: "Facebook"
+}
+```
+
+for accessing the keys in Object:
+
+```
+
+const symbols = {
+    yt: "YouTube",
+    ig: "Instagram",
+    fb: "Facebook"
+}
+
+for ( const n in symbols ){
+    console.log(n)
+}
+
+```
+
+
+for accessing the Values in Object:
+
+```
+
+const symbols = {
+    yt: "YouTube",
+    ig: "Instagram",
+    fb: "Facebook"
+}
+
+for ( const n in symbols ){
+    console.log(symbol[n]);
+}
+
 ```
