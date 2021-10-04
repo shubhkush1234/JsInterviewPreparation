@@ -96,31 +96,81 @@ for(let char of string){
 
 function maxChar(str){
     const charMap = {};
+    var max = 0;
+    var maxChar = "";
 
-    for (let char of str){
+    for (let char of str){         //for iterating array
         if( charMap[char] ){
             charMap[char]++ ;
         } else {
             charMap[char] = 1;
         }
     }
-    console.log(charMap);
+    for(char in charMap){          //for iterating object
+        if (charMap[char] > max ){
+            max = charMap[char];
+            maxChar = char;
+        }
+    }
+    return maxChar;
+    
 }
 
 ```
 
+# 4. Fizz Buzz #
+
+Write a program that console logs the numbers from 1 to n. But for multiples of three print
+“fizz” instead of the number and for the multiples of five print “buzz”. For numbers which are multiples
+of both three and five print “fizzbuzz”.
+
+Example:
+  fizzBuzz(5);
+  1
+  2
+  fizz
+  4
+  buzz
 
 
+```
+var n = 10;
+function fizbuzz(n){
+    for(let i=0; i <= n; i++){
+        if(i %3 ==0){
+            console.log("fizz")
+        }
+        else if (i%5 ==0){
+            console.log("buzz")
+        }
+        else if(i%3 ==0 && i%5 == 0){
+            console.log("fizzBuzz");
+        }
+        else{
+            console.log(i);
+        }
+    }
+};
+fizbuzz(n);
+
+```
+
+# 5. Chunk of Array #
+
+Given an array and chunk size, divide the array into many subarrays
+where each subarray is of length size
+--- Examples
+chunk([1, 2, 3, 4], 2) --> [[ 1, 2], [3, 4]]
+chunk([1, 2, 3, 4, 5], 2) --> [[ 1, 2], [3, 4], [5]]
+chunk([1, 2, 3, 4, 5, 6, 7, 8], 3) --> [[ 1, 2, 3], [4, 5, 6], [7, 8]]
+chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
+chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
 
+```
 
 
-
-
-
-
-
-
+```
 
 
 
@@ -214,7 +264,7 @@ const sum = numbers.reduce((previousValue, currentValue) => {
 
 
 
-
+-----------------------------------------------------
 
 # 5. includes() #
 
@@ -295,7 +345,8 @@ myPromise.then(value => console.log(value));
 What if the promise fails?
 Catch the reject value.
 
-```javascript
+```javaScript
+
     const myPromise= new Promise((resolve, reject)) => {
         if(true){
             console.log("I have failed")
@@ -311,13 +362,16 @@ Catch the reject value.
 ```
 We can chain the ```javascript .then ``` as well.
 ```javascript
+
     .then(value => console.log(value +'It is good'))
     .then(newValue => console.log(newValue))
     .catch(rejectValue => console.log(value));
 ```
+
 JavaScript fetch(), which is used for making API calls make use of promises to resolve and reject the network calls.
 
-```javascript
+```javaScript
+
     fetch("https://jsonplaceholder.typicode/posts")
         .then(response => response.json())
         .then(console.log(json))
@@ -327,7 +381,8 @@ JavaScript fetch(), which is used for making API calls make use of promises to r
 
 Objects in JS:
 
-```
+```javaScript
+
 const symbols = {
     yt: "YouTube",
     ig: "Instagram",
@@ -335,9 +390,9 @@ const symbols = {
 }
 ```
 
-for accessing the keys in Object:
+## for accessing the keys in Object: ##
 
-```
+```javaScript
 
 const symbols = {
     yt: "YouTube",
@@ -352,9 +407,9 @@ for ( const n in symbols ){
 ```
 
 
-for accessing the Values in Object:
+## for accessing the Values in Object: ##
 
-```
+```javaScript
 
 const symbols = {
     yt: "YouTube",
@@ -367,3 +422,82 @@ for ( const n in symbols ){
 }
 
 ```
+
+
+
+-----------------------------------------------------
+
+# Objects In JS: #
+
+https://cognizant.udemy.com/course/understand-javascript/learn/lecture/2237512#overview
+
+```javaScript
+var person = new Object();
+
+person["firstname"]= "Shubham";
+person["lastname"] = "Kushwaha";
+
+var firstNameProperty = "firstname";
+
+console.log(person); // object{firstname:'Shubham',lastname:"Kushwaha"}
+console.log(person[firstNameProperty]); // Shubham
+
+person.address = new Object();
+person.address.street = "RIE";
+person.address.city = "BHOPAL";
+
+
+console.log(person.firstname); // Shubham
+console.log(person.address.city) // BHOPAL
+console.log(person["address"]["city"]) // BHOPAL
+
+```
+
+## Object declaration using Object literal: ##
+
+```javaScript
+
+var person = {
+    firstname: "Shubham",
+    address:{
+        street: "RIE",
+        city: "Bhopal"
+    }
+};
+console.log(person);
+
+```
+
+### Passing object to a function ###
+
+```javaScript
+var shubham = {
+    firstname: "Shubham",
+    address:{
+        street: "RIE",
+        city: "Bhopal"
+    }
+}
+
+function greet(person){
+    console.log("Hi" + person.firstname)
+};
+
+greet(shubham);
+greet({firstname:"Mary", lastname: "Doe"});
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
