@@ -485,8 +485,118 @@ function greet(person){
 
 greet(shubham);
 greet({firstname:"Mary", lastname: "Doe"});
+```
+
+## Object Oriented JS and Prototypal Inheritance ##
+
+What is inheritance?
+
+One object gets access to the properties and methods of another object.
+
+
+Classical Inheritance:
+
+-   Constructors
+-   friend
+-   protected
+-   private
+-   interface etc.
+
+Prototypal Inheritance:
+1. flexible
+2. extensible
+3. easy to understand
+
+Eg; if an object onj is having 2 properties:
+1. prop1
+2. proto 
+Proto is having prop2 and proto
+proto is having another proto having property prop3.
+
+How to access it? obj.prop1 , obj.prop2 , obj.prop3 ...
+If it doesn't gets it directly, it will try to search it in its proto.
+
+This is called PROTOTYPE CHAIN.
+
+Don't confuse with scope chain.
+
+The scope chain is about looking for where we have access to a variable.
+
+Eg: If we need to go to prop3, we need not to call it like this: obj.proto.proto.prop3 . We just need to write obj.props3 
+
+Lets assume we have another object obj2 pointing to same proto of obj . We can access it like this: obj.prop2
+
+Practical Example:
+
+```javaScript
+
+var person  = {
+    firstname: "Default",
+    lastname: "Default",
+    getFullName: function (){
+        return firstname + " " + lastname;
+    }
+}
+
+var shubham = {
+    firstname: "Shubham",
+    lastname: "Kushwaha"
+}
+
+// Don't do this ever! for demo purpose only!!!
+shubham.__proto__ = person;
+shubham.getFullName(); // Shubham Kushwaha
+shubham.firstname; // Shubham
+
+var jane = {
+    firstname: "Jane"
+};
+
+jane.__proto__ = person;
+console.log(jane.getFullName()); //Jane Default
 
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
