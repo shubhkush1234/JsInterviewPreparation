@@ -557,6 +557,88 @@ console.log(jane.getFullName()); //Jane Default
 
 ```
 
+### Everything is an object (or a primitive)  ###
+
+var a = {};
+var b = function(){ };
+var c = [];
+
+
+### Reflection and Extend ###
+
+Reflection:
+An object can look at itself, listing and changing its properties and methods.
+
+## Building Objects ##
+
+1. Function Constructors :
+
+A normal function that is used to construct objects.
+
+The "this" keyword points to new empty object and that object is returned from the function automatically.
+
+```javaScript
+function Person (firstname, lastname){
+    console.log(this); // Person
+    this.firstname = firstname;
+    this.lastname = lastname;
+    console.log("this fucntion is invoked");
+}
+var shubham = new Person("Shubham", "Kushwaha");
+console.log(shubham); // Person {firstname: 'Shubham', lastname: 'Kushwaha'}
+
+var jane = new Person("Jane" , "Doe");
+console.log(jane) //  // Person {firstname: 'Jane', lastname: 'Doe'}
+
+```
+
+2. Function Constructors and Prototypes :
+
+The prototype property on a function is not the prototype of the function. Its the prototype of any objects created if you are using function as a function constructor.
+
+
+```javaScript
+function Person (firstname, lastname){
+    console.log(this); // Person
+    this.firstname = firstname;
+    this.lastname = lastname;
+    console.log("this fucntion is invoked");
+}
+var shubham = new Person("Shubham", "Kushwaha");
+console.log(shubham); // Person {firstname: 'Shubham', lastname: 'Kushwaha'}
+
+var jane = new Person("Jane" , "Doe");
+console.log(jane) //  // Person {firstname: 'Jane', lastname: 'Doe'}
+
+Person.prototype.getFormalFullName = function(){
+    return this.lastname + ", " + this.firstname;
+}
+
+console.log(shubham.getFormalFullName());
+```
+
+By above eg, it means that any object that i created with this function, later I can add features to all of those objects at once by using this ".prototype" property of the function constructor.
+
+NOTE: Best practice is to keep properties inside the function constructor and methods on the prototypes.
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
