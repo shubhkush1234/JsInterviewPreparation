@@ -623,16 +623,19 @@ NOTE: Best practice is to keep properties inside the function constructor and me
 
 ---
 
+## Syntax Parsers ##
 
+A program that reads your code and determines what it does and if its grammar is valid.
 
+## Lexical Environment ##
 
+- Where something sits physically in the code you write.
+- Lexical means "having to do with words or grammer". A lexical env exists where you write something is important.
 
+## Execution Context ##
 
-
-
-
-
-
+- A wrapper to help manage the code that is running.
+- There are lots of lexical envs. Which one is currently running is managed via execution contexts. It can contain things beyond what you've written in your code.
 
 
 
